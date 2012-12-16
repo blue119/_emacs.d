@@ -12,6 +12,8 @@
        (goto-char (point-max))
        (eval-print-last-sexp)))))
 (el-get 'sync)
+; (el-get-emacswiki-build-local-recipes)
+; (el-get-elpa-build-local-recipes)
 
 (el-get-install "highlight-symbol")
 (el-get-install "color-theme")
