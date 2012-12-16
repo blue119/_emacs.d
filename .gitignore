@@ -1,0 +1,13 @@
+ac-comphist.dat
+*~
+*.elc
+custom.el
+bookmarks
+*#
+tramp
+
+el-get/
+eshell/
+elpa/
+auto-save-list/
+backups/
