@@ -75,9 +75,9 @@
       (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
 
 ;; Org
-;; (global-set-key (kbd "C-c l") 'org-store-link)
-;; (global-set-key (kbd "C-c a") 'org-agenda)
-;; (global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
 
 ;; folding
 (add-hook 'c-mode-common-hook

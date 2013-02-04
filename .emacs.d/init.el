@@ -29,5 +29,6 @@
 (require 'rc-python)
 (require 'rc-fci)
 ;; (require 'rc-p4)
+(require 'rc-org)
 (require 'yp-tools)
 
