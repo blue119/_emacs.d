@@ -26,7 +26,7 @@
 (setq show-paren-style 'parentheses)
 
 ;; Enable line number
-(global-linum-mode t)
+;; (global-linum-mode t)
 
 ;; Enable HL-line-mode
 (global-hl-line-mode t)
