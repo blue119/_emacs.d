@@ -19,8 +19,10 @@
 (setq org-directory "~/Dropbox/org"
       org-agenda-files '("~/Dropbox/org/newgtd.org" 
                          "~/Dropbox/org/refile.org"
+                         "~/Dropbox/org/gCalendar.org"
                          "~/Dropbox/org/rkus.org")
       org-default-notes-file (concat org-directory "/refile.org")
+      journal-file "~/Dropbox/org/journal.org"
       org-agenda-include-diary t
       org-log-done 'time
       org-log-into-drawer "LOGBOOK"
@@ -69,8 +71,8 @@
         ;;  "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
         ("n" "note" entry (file "~/Dropbox/org/refile.org")
          "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-        ("j" "Journal" entry (file+datetree "~/Dropbox/org/journal.org")
-         "* %?\n%U\n" :clock-in t :clock-resume t)
+        ("j" "Journal" entry (file+datetree journal-file)
+         "* %?\n%U\n")
         ;; ("h" "Habit" entry (file "~/Dropbox/org/refile.org")
         ;;  "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"<%Y-%m-%d %a .+1d/3d>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n")
         )
@@ -98,7 +100,8 @@
       ;;
       ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
       org-refile-targets '((nil :maxlevel . 9)
-                           (org-agenda-files :maxlevel . 9))
+                           (org-agenda-files :maxlevel . 9)
+                           (journal-file :maxlevel . 9))
 
       ;; org-refile-targets '(("newgtd.org" :maxlevel . 1)
       ;;                      ("someday.org" :level . 2))
@@ -151,8 +154,9 @@
          ((tags "PROJECT+OFFICE")))
         ("h" "Office and Home Lists"
          ((agenda)
-          (tags-todo "OFFICE")
+          (tags-todo "RKUS")
           (tags-todo "HOME")
+          (tags-todo "GTD")
           (tags-todo "READING")))
         ("d" "Daily Action List"
          ((agenda "" ((org-agenda-ndays 1)
