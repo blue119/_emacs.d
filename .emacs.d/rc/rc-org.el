@@ -154,7 +154,9 @@
          ((tags "PROJECT+OFFICE")))
         ("h" "Office and Home Lists"
          ((agenda)
-          (tags-todo "RKUS")
+          (tags-todo "RKUS-SCGE")
+          (tags-todo "RKUS+SCGE")
+          (tags-todo "RKUS+COV")
           (tags-todo "HOME")
           (tags-todo "GTD")
           (tags-todo "READING")))
