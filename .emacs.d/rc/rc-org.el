@@ -20,7 +20,8 @@
       org-agenda-files '("~/Dropbox/org/newgtd.org" 
                          "~/Dropbox/org/refile.org"
                          "~/Dropbox/org/gCalendar.org"
-                         "~/Dropbox/org/rkus.org")
+                         "~/Dropbox/org/rkus.org"
+                         "~/Dropbox/org/alices-three-shift.org")
       org-default-notes-file (concat org-directory "/refile.org")
       journal-file "~/Dropbox/org/journal.org"
       org-agenda-include-diary t
@@ -73,6 +74,8 @@
          "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
         ("j" "Journal" entry (file+datetree journal-file)
          "* %?\n%U\n")
+        ("E" "Night Shift" entry (file "alices-three-shift.org") 
+         "* E Shift\n%t\n")
         ;; ("h" "Habit" entry (file "~/Dropbox/org/refile.org")
         ;;  "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"<%Y-%m-%d %a .+1d/3d>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n")
         )

@@ -5,6 +5,9 @@
       browse-url-generic-program (or (getenv "BROWSER")
                                      (executable-find "browse")))
 
+;; start emace server
+(server-start)
+
 ;; User FULL NAME
 (setq user-full-name "Yao-Po Wang (王堯坡)")
 
