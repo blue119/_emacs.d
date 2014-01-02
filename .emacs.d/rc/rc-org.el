@@ -157,12 +157,14 @@
          ((tags "PROJECT+OFFICE")))
         ("h" "Office and Home Lists"
          ((agenda)
-          (tags-todo "RKUS-SCGE")
-          (tags-todo "RKUS+SCGE")
-          (tags-todo "RKUS+COV")
+          (tags-todo "SCG30")
+          (tags-todo "SCG25")
+          (tags-todo "SCG21")
+          (tags-todo "SCGE")
           (tags-todo "HOME")
           (tags-todo "GTD")
-          (tags-todo "READING")))
+          (tags-todo "READING")
+          (tags-todo "ELEARNING")))
         ("d" "Daily Action List"
          ((agenda "" ((org-agenda-ndays 1)
                       (org-agenda-sorting-strategy

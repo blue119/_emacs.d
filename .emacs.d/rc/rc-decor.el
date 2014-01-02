@@ -1,14 +1,15 @@
 ;;; rc-decor.el -- Decoration
 
 ;; Set fonts
-;; (customize-set-variable
-;;  'face-font-family-alternatives
-;;  (cons '("Han" "WenQuanYi Micro Hei" "AR Heiti Light B5" "cwTexYen")
-;;        face-font-family-alternatives))
-;; (setq face-font-rescale-alist
-;;       '(("WenQuanYi Micro Hei" . 1.25)
-;; 	("cwTexYen" . 1.35)
-;; 	("AR Heiti Light B5" . 1.2)))
+; (customize-set-variable
+;   'face-font-family-alternatives
+;   (cons '("Han" "WenQuanYi Micro Hei" "AR Heiti Light B5" "cwTexYen")
+;         face-font-family-alternatives))
+; (setq face-font-rescale-alist
+;   '(("WenQuanYi Micro Hei" . 1.25)
+;     ("cwTexYen" . 1.35)
+;     ("AR Heiti Light B5" . 1.2)))
+
 ;; (set-fontset-font t 'han "Han")
 ;; Setting `face-font-rescale-alist' somehow changes the default font
 ;; for new frame.
