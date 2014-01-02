@@ -11,3 +11,5 @@ eshell/
 elpa/
 auto-save-list/
 backups/
+.emacs.d/recentf
+.emacs.d/ido.last
