@@ -95,8 +95,16 @@
 ;; Nav
 (global-set-key (kbd "<f5>") 'nav)
 
+(global-set-key (kbd "<f6>") (lambda ()
+  (interactive)
+  (if (string= (buffer-name) ecb-directories-buffer-name)
+    (refresh-ecb)
+    (if (buffer-modified-p)
+      (revert-buffer) ; ask for confirmation
+      (revert-buffer t t))))) ; don't ask for confirmation - it's unnecessary, since the buffer hasn't been 
+
 ;; Whitespcae-mode
-(global-set-key (kbd "<f9>") 'whitespace-mode)
+; (global-set-key (kbd "<f9>") 'whitespace-mode)
 
 (provide 'rc-kbd)
 ;;; rc-kbd.el ends here
