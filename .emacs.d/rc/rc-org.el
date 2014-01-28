@@ -45,6 +45,7 @@
       ;; Compact the block agenda view
       org-agenda-compact-blocks t
       org-agenda-skip-deadline-if-done t
+      org-agenda-skip-deadline-prewarning-if-scheduled t
 
       ;; Custom agenda command definitions
       org-agenda-custom-commands
@@ -90,10 +91,10 @@
          ((org-agenda-overriding-header "Tasks to Refile")
           (org-tags-match-list-sublevels nil)))
         
-        ("H" "Habits" tags-todo "STYLE=\"habit\""
-         ((org-agenda-overriding-header "Habits")
-          (org-agenda-sorting-strategy
-           '(todo-state-down effort-up category-keep))))
+        ; ("H" "Habits" tags-todo "STYLE=\"habit\""
+        ;  ((org-agenda-overriding-header "Habits")
+        ;   (org-agenda-sorting-strategy
+        ;    '(todo-state-down effort-up category-keep))))
 
         ("N" "Notes" tags "NOTE"
                ((org-agenda-overriding-header "Notes")
@@ -105,18 +106,6 @@
                 ((org-agenda-overriding-header "Tasks to Refile")
                  (org-tags-match-list-sublevels nil)))
           
-          ; (tags-todo "-CANCELLED/!"
-          ;            ((org-agenda-overriding-header "Stuck Projects")
-          ;             (org-agenda-skip-function 'bh/skip-non-stuck-projects)
-          ;             (org-agenda-sorting-strategy
-          ;              '(category-keep))))
-          ;  
-          ; (tags-todo "-HOLD-CANCELLED/!"
-          ;            ((org-agenda-overriding-header "Projects")
-          ;             (org-agenda-skip-function 'bh/skip-non-projects)
-          ;             (org-tags-match-list-sublevels 'indented)
-          ;             (org-agenda-sorting-strategy
-          ;              '(category-keep))))
           (tags "-REFILE-HOME/!NEXT"
                 ((org-agenda-overriding-header "Office Next Tasks")
                  (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
@@ -149,37 +138,6 @@
           ;             (org-agenda-todo-ignore-with-date bh/hide-scheduled-and-waiting-next-tasks)
           ;             (org-agenda-sorting-strategy
           ;              '(todo-state-down effort-up category-keep))))
-
-          ;(tags-todo "-REFILE-CANCELLED-WAITING-HOLD/!"
-          ;            ((org-agenda-overriding-header (concat "Project Subtasks"
-          ;                                                   (if bh/hide-scheduled-and-waiting-next-tasks
-          ;                                                       ""
-          ;                                                     " (including WAITING and SCHEDULED tasks)")))
-          ;             (org-agenda-skip-function 'bh/skip-non-project-tasks)
-          ;             (org-agenda-todo-ignore-scheduled bh/hide-scheduled-and-waiting-next-tasks)
-          ;             (org-agenda-todo-ignore-deadlines bh/hide-scheduled-and-waiting-next-tasks)
-          ;             (org-agenda-todo-ignore-with-date bh/hide-scheduled-and-waiting-next-tasks)
-          ;             (org-agenda-sorting-strategy
-          ;              '(category-keep))))
-          ; 
-          ; (tags-todo "-REFILE-CANCELLED-WAITING-HOLD/!"
-          ;            ((org-agenda-overriding-header (concat "Standalone Tasks"
-          ;                                                   (if bh/hide-scheduled-and-waiting-next-tasks
-          ;                                                       ""
-          ;                                                     " (including WAITING and SCHEDULED tasks)")))
-          ;             (org-agenda-skip-function 'bh/skip-project-tasks)
-          ;             (org-agenda-todo-ignore-scheduled bh/hide-scheduled-and-waiting-next-tasks)
-          ;             (org-agenda-todo-ignore-deadlines bh/hide-scheduled-and-waiting-next-tasks)
-          ;             (org-agenda-todo-ignore-with-date bh/hide-scheduled-and-waiting-next-tasks)
-          ;             (org-agenda-sorting-strategy
-          ;              '(category-keep))))
-          ; 
-          ; (tags-todo "-CANCELLED+WAITING|HOLD/!"
-          ;            ((org-agenda-overriding-header "Waiting and Postponed Tasks")
-          ;             (org-agenda-skip-function 'bh/skip-stuck-projects)
-          ;             (org-tags-match-list-sublevels nil)
-          ;             (org-agenda-todo-ignore-scheduled t)
-          ;             (org-agenda-todo-ignore-deadlines t)))
           ; 
           ; (tags "-REFILE/"
           ;       ((org-agenda-overriding-header "Tasks to Archive")
@@ -218,7 +176,34 @@
                                      ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))
  )
 
+      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+      ;; Ch 6 Adding New Tasks Quickly with Org Capture from norang
+      ;;
+      ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, and org-protocol
+(setq org-capture-templates 
+      '(("t" "New task" entry (file "refile.org")
+         "* TODO %^{Brief Description} %^g\n%?\n%U")
+        
+        ("i" "interrupt" entry (file "~/Dropbox/org/refile.org")
+         "* TODO %^{Brief Description} %?\n%U" :clock-in t :clock-resume t)
+                
+        ; ("r" "respond" entry (file "~/Dropbox/org/refile.org")
+        ;  "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+        
+        ; ("n" "note" entry (file "~/Dropbox/org/refile.org")
+        ;  "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+        
+        ("j" "Journal" entry (file+datetree journal-file)
+         "* %?\n%U\n")
+        
+        ("E" "Night Shift" entry (file "alices-three-shift.org") 
+         "* E Shift\n%t\n")
 
+        ; ("h" "Habit" entry (file "~/Dropbox/org/refile.org")
+        ;  "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"<%Y-%m-%d %a .+1d/3d>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n")
+        ; )
+        )
+      )
 
 (setq org-directory "~/Dropbox/org"
       org-default-notes-file (concat org-directory "/refile.org")
@@ -226,45 +211,6 @@
       org-log-done 'time
       org-log-into-drawer "LOGBOOK"
       org-clock-into-drawer "CLOCK"
-
-      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-      ;; Ch 6 Adding New Tasks Quickly with Org Capture from norang
-      ;;
-      ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, and org-protocol
-      org-capture-templates 
-      '(("t" "New task" entry (file "refile.org")
-         "* TODO %^{Brief Description} %^g\n%?\n%U")
-        
-        ("r" "respond" entry (file "~/Dropbox/org/refile.org")
-         "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
-        
-        ("n" "note" entry (file "~/Dropbox/org/refile.org")
-         "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-        
-        ("j" "Journal" entry (file+datetree journal-file)
-         "* %?\n%U\n")
-        
-        ("E" "Night Shift" entry (file "alices-three-shift.org") 
-         "* E Shift\n%t\n")
-        
-        ("T" "todo" entry (file "~/Dropbox/org/refile.org")
-         "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-        
-        ("J" "Journal" entry (file+datetree journal-file)
-         "* %?\n%U\n" :clock-in t :clock-resume t)
-        
-        ("W" "org-protocol" entry (file "~/Dropbox/org/refile.org")
-         "* TODO Review %c\n%U\n" :immediate-finish t)
-        
-        ("M" "Meeting" entry (file "~/Dropbox/org/refile.org")
-         "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
-        
-        ("P" "Phone call" entry (file "~/Dropbox/org/refile.org")
-         "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
-
-        ("h" "Habit" entry (file "~/Dropbox/org/refile.org")
-         "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"<%Y-%m-%d %a .+1d/3d>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n")
-        )
       
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; 7 Refiling Tasks from norang
@@ -290,8 +236,6 @@
 
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; 8 Custom agenda views from norang
-
-
       org-stuck-projects (quote ("" nil nil ""))
             
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -321,19 +265,23 @@
       ;; preventing export of some subtrees when publishing
 
       ;; Tags with fast selection keys
-      ;; org-tag-alist '((:startgroup)
-      ;;                 ("@OFFICE" . ?o)
-      ;;                 ("@HOME" . ?h)
-      ;;                 ("@CAFE" . ?c)
-      ;;                 (:endgroup)
-      ;;                 ;; ("WAITING" . ?W)
-      ;;                 ;; ("HOLD" . ?H)
-      ;;                 ;; ("READING" . ?R)
-      ;;                 ;; ("PERSONAL" . ?P)
-      ;;                 ;; ("WORK" . ?W)
-      ;;                 ;; ("CANCELLED" . ?C)
-      ;;                 )
-      
+      org-tag-alist '((:startgroup)
+                      ("@OFFICE" . ?o)
+                      ("@HOME" . ?h)
+                      ("@CAFE" . ?c)
+                      (:endgroup)
+                      ("WAITING" . ?W)
+                      ("HOLD" . ?H)
+                      ("READING" . ?R)
+                      ("PERSONAL" . ?P)
+                      ("WORK" . ?W)
+                      ("CANCELLED" . ?C)
+                      )
+
+      ; Allow setting single tags without the menu
+      org-fast-tag-selection-single-key (quote expert)
+      ; For tag searches ignore tasks with scheduled and deadline dates
+      org-agenda-tags-todo-honor-ignore-options t
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
       ;; org-stuck-projects '(
       ;;                      "+PROJECT/-MAYBE-DONE" ("NEXT" "TODO") 
@@ -347,7 +295,6 @@
 
       ;; Resume clocking task when emacs is restarted
       (org-clock-persistence-insinuate)
-      ;;
       ;; Show lot of clocking history so it's easy to pick items off the C-F11 list
       (setq org-clock-history-length 23)
       ;; Resume clocking task on clock-in if the clock is open
@@ -371,8 +318,6 @@
       ;; Include current clocking task in clock reports
       (setq org-clock-report-include-clocking-task t)
       
-      (setq bh/keep-clock-running nil)
-
       (defun bh/clock-in-to-next (kw)
         "Switch a task from TODO to NEXT when clocking in.
 Skips capture tasks, projects, and subprojects.
@@ -386,6 +331,16 @@ Switch projects and subprojects from NEXT back to TODO"
                  (bh/is-project-p))
             "TODO"))))
 
+
+
+
+
+
+
+
+
+
+
       (defun bh/find-project-task ()
         "Move point to the parent (project) task if any"
         (save-restriction
@@ -397,98 +352,10 @@ Switch projects and subprojects from NEXT back to TODO"
             (goto-char parent-task)
             parent-task)))
 
-      (defun bh/punch-in (arg)
-        "Start continuous clocking and set the default task to the
-selected task.  If no task is selected set the Organization task
-as the default task."
-        (interactive "p")
-        (setq bh/keep-clock-running t)
-        (if (equal major-mode 'org-agenda-mode)
-            ;;
-            ;; We're in the agenda
-            ;;
-            (let* ((marker (org-get-at-bol 'org-hd-marker))
-                   (tags (org-with-point-at marker (org-get-tags-at))))
-              (if (and (eq arg 4) tags)
-                  (org-agenda-clock-in '(16))
-                (bh/clock-in-organization-task-as-default)))
-          ;;
-          ;; We are not in the agenda
-          ;;
-          (save-restriction
-            (widen)
-                                        ; Find the tags on the current task
-            (if (and (equal major-mode 'org-mode) (not (org-before-first-heading-p)) (eq arg 4))
-                (org-clock-in '(16))
-              (bh/clock-in-organization-task-as-default)))))
-
-      (defun bh/punch-out ()
-        (interactive)
-        (setq bh/keep-clock-running nil)
-        (when (org-clock-is-active)
-          (org-clock-out))
-        (org-agenda-remove-restriction-lock))
-
       (defun bh/clock-in-default-task ()
         (save-excursion
           (org-with-point-at org-clock-default-task
             (org-clock-in))))
-
-      (defun bh/clock-in-parent-task ()
-        "Move point to the parent (project) task if any and clock in"
-        (let ((parent-task))
-          (save-excursion
-            (save-restriction
-              (widen)
-              (while (and (not parent-task) (org-up-heading-safe))
-                (when (member (nth 2 (org-heading-components)) org-todo-keywords-1)
-                  (setq parent-task (point))))
-              (if parent-task
-                  (org-with-point-at parent-task
-                    (org-clock-in))
-                (when bh/keep-clock-running
-                  (bh/clock-in-default-task)))))))
-
-      (defvar bh/organization-task-id "eb155a82-92b2-4f25-a3c6-0304591af2f9")
-
-      (defun bh/clock-in-organization-task-as-default ()
-        (interactive)
-        (org-with-point-at (org-id-find bh/organization-task-id 'marker)
-          (org-clock-in '(16))))
-
-      (defun bh/clock-out-maybe ()
-        (when (and bh/keep-clock-running
-                   (not org-clock-clocking-in)
-                   (marker-buffer org-clock-default-task)
-                   (not org-clock-resolving-clocks-due-to-idleness))
-          (bh/clock-in-parent-task)))
-
-      (add-hook 'org-clock-out-hook 'bh/clock-out-maybe 'append)
-
-      (defun bh/clock-in-task-by-id (id)
-        "Clock in a task by id"
-        (org-with-point-at (org-id-find id 'marker)
-          (org-clock-in nil)))
-
-      (defun bh/clock-in-last-task (arg)
-        "Clock in the interrupted task if there is one
-Skip the default task and get the next one.
-A prefix arg forces clock in of the default task."
-        (interactive "p")
-        (let ((clock-in-to-task
-               (cond
-                ((eq arg 4) org-clock-default-task)
-                ((and (org-clock-is-active)
-                      (equal org-clock-default-task (cadr org-clock-history)))
-                 (caddr org-clock-history))
-                ((org-clock-is-active) (cadr org-clock-history))
-                ((equal org-clock-default-task (car org-clock-history)) (cadr org-clock-history))
-                (t (car org-clock-history)))))
-          (widen)
-          (org-with-point-at clock-in-to-task
-            (org-clock-in nil))))
-
-;; (ido-mode (quote both))
      
 ;; Custom Key Bindings
 (global-set-key (kbd "<f12>") 'org-agenda)
