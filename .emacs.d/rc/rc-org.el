@@ -22,9 +22,13 @@
                          "~/Dropbox/org/ruks.org"
                          "~/Dropbox/org/ruks-scg2.org"
                          "~/Dropbox/org/ruks-scg3.org"
-                         "~/Dropbox/org/alices-three-shift.org")
+                         "~/Dropbox/org/alices-three-shift.org"
+                         "~/Dropbox/org/Diary.org"
+                         )
+      org-agenda-diary-file "~/Dropbox/org/Diary.org" 
       org-agenda-include-diary t
       org-agenda-skip-scheduled-if-done t
+
 
       ;; Custom agenda views are used for:
       ;;    Single block agenda shows the following
@@ -182,12 +186,15 @@
       ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, and org-protocol
 (setq org-capture-templates 
       '(("t" "New task" entry (file "refile.org")
-         "* TODO %^{Brief Description} %^g\n%?\n%U")
-        
-        ("i" "interrupt" entry (file "~/Dropbox/org/refile.org")
-         "* TODO %^{Brief Description} %?\n%U" :clock-in t :clock-resume t)
-                
-        ; ("r" "respond" entry (file "~/Dropbox/org/refile.org")
+         "* TODO %^{Brief Description} %^g\n%?\n%U\n")
+
+        ("i" "Interrupt" entry (file "refile.org")
+         "* TODO %^{Brief Description} %?\n%U\n" :clock-in t :clock-resume t)
+
+        ("d" "Date" entry (file "refile.org")
+         "* %^{Brief} \n%?\n%U\n")
+
+        ; ("r" "respond" entry (file "~/Dropbox/org/refile.org")l
         ;  "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
         
         ; ("n" "note" entry (file "~/Dropbox/org/refile.org")
@@ -330,15 +337,6 @@ Switch projects and subprojects from NEXT back to TODO"
            ((and (member (org-get-todo-state) (list "NEXT"))
                  (bh/is-project-p))
             "TODO"))))
-
-
-
-
-
-
-
-
-
 
 
       (defun bh/find-project-task ()
