@@ -1,6 +1,12 @@
 ;; rc-kbd.el --- Set up some handy key bindings
 ;;
 
+;; See the Misc[ellaneous System] Events node of the Emacs Lisp manual:
+(define-key special-event-map [sigusr1]
+                (lambda ()
+                  (interactive)
+                  (save-buffers-kill-emacs t)))
+
 ;; highlight-symbol for source-insign style
 (when (fboundp 'highlight-symbol-mode)
   (global-set-key (kbd "<f6>") 'highlight-symbol-at-point)
