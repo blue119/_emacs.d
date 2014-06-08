@@ -5,6 +5,7 @@ custom.el
 bookmarks
 *#
 tramp
+.emacs.d/recentf
 
 el-get/
 eshell/
