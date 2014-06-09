@@ -120,6 +120,16 @@
                  (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
                  (org-tags-match-list-sublevels nil)))
 
+          (tags "-REFILE-HOME/!WAITING"
+                ((org-agenda-overriding-header "Office Waiting Tasks")
+                 (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
+                 (org-tags-match-list-sublevels nil)))
+
+          (tags "-REFILE-RKS/!WAITING"
+                ((org-agenda-overriding-header "Home Waiting Tasks")
+                 (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
+                 (org-tags-match-list-sublevels nil)))
+
           (tags-todo "-REFILE-HOME/-NEXT"
                 ((org-agenda-overriding-header "Office Tasks")
                  (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
