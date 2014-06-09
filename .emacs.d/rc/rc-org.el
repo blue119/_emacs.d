@@ -517,7 +517,7 @@ A prefix arg forces clock in of the default task."
 (setq org-time-stamp-rounding-minutes (quote (1 1)))
 
 ;; Agenda log mode items to display (closed and state changes by default)
-(setq org-agenda-log-mode-items (quote (closed state)))
+; (setq org-agenda-log-mode-items (quote (closed state)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; 14 GTD stuff
