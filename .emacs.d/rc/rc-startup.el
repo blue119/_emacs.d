@@ -16,8 +16,8 @@
 ; (el-get-elpa-build-local-recipes)
 
 (el-get-install "highlight-symbol")
-(el-get-install "color-theme")
-(el-get-install "color-theme-desert")
+;(el-get-install "color-theme")
+;(el-get-install "color-theme-desert")
 (el-get-install "python-mode")
 (el-get-install "smex")
 (el-get-install "vline")
@@ -27,10 +27,9 @@
 (el-get-install "js2-mode")
 (el-get-install "auto-complete")
 (el-get-install "find-file-in-project")
-(el-get-install "modeline-posn")
+; (el-get-install "modeline-posn")
 (el-get-install "fill-column-indicator")
 (el-get-install "nav")
-(el-get-install "modeline-posn")
-(el-get-install "xgtags")
+;(el-get-install "xgtags")
 
 (provide 'rc-startup)
