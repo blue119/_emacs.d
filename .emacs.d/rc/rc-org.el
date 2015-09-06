@@ -267,10 +267,10 @@
         ;("t" "New task" entry (file "refile.org")
         ;  "* TODO %^{Brief Description} %^g\n%?\n%U\n")
         ("t" "todo" entry (file "refile.org")
-         "* TODO %?\n%U\n" :clock-in t :clock-resume t)
+         "* TODO %?\n%U\n")
 
-        ;("i" "Interrupt" entry (file "refile.org")
-        ; "* TODO %^{Brief Description} %?\n%U\n" :clock-in t :clock-resume t)
+        ("i" "Interrupt" entry (file "refile.org")
+         "* TODO %^{Brief Description} %?\n%U\n" :clock-in t :clock-resume t)
 
         ;("d" "Date" entry (file "refile.org")
         ; "* %^{Brief} \n%?\n%U\n")
