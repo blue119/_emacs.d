@@ -19,6 +19,7 @@
 (setq org-agenda-files '("~/Dropbox/org/newgtd.org" 
                          "~/Dropbox/org/refile.org"
                          "~/Dropbox/org/gCalendar.org"
+                         "~/Dropbox/org/ubnt.org"
                          "~/Dropbox/org/ruks.org"
                          "~/Dropbox/org/ruks-scg2.org"
                          "~/Dropbox/org/ruks-scg3.org"
