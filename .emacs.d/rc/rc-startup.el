@@ -16,8 +16,8 @@
 ; (el-get-elpa-build-local-recipes)
 
 (el-get-install "highlight-symbol")
-;(el-get-install "color-theme")
-;(el-get-install "color-theme-desert")
+(el-get-install "color-theme")
+(el-get-install "color-theme-desert")
 (el-get-install "python-mode")
 (el-get-install "smex")
 (el-get-install "vline")

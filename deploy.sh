@@ -1,4 +1,4 @@
-#!/bain/sh
+#!/bin/bash
 
 fs+=(.emacs.d)
 
