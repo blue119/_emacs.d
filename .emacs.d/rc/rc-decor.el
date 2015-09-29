@@ -1,6 +1,9 @@
 ;;; rc-decor.el -- Decoration
 
 ;; Set fonts
+; (set-frame-font "Droid Sans Mono-15" nil t)
+(set-frame-font "Droid Sans Mono-14" nil t)
+
 ; (customize-set-variable
 ;   'face-font-family-alternatives
 ;   (cons '("Han" "WenQuanYi Micro Hei" "AR Heiti Light B5" "cwTexYen")

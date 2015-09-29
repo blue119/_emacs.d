@@ -16,17 +16,18 @@
                     org-rmail
             ))
 
-(setq org-agenda-files '("~/Dropbox/org/newgtd.org" 
+(setq org-agenda-files '("~/Dropbox/org/newgtd.org"
                          "~/Dropbox/org/refile.org"
                          "~/Dropbox/org/gCalendar.org"
                          "~/Dropbox/org/ubnt.org"
                          "~/Dropbox/org/ruks.org"
+                         "~/Dropbox/org/pycon2016.org"
                          "~/Dropbox/org/ruks-scg2.org"
                          "~/Dropbox/org/ruks-scg3.org"
                          "~/Dropbox/org/alices-three-shift.org"
                          "~/Dropbox/org/Diary.org"
                          )
-      org-agenda-diary-file "~/Dropbox/org/Diary.org" 
+      org-agenda-diary-file "~/Dropbox/org/Diary.org"
       org-agenda-include-diary t
       org-agenda-skip-scheduled-if-done t
 
@@ -91,11 +92,11 @@
           (tags-todo "GTD")
           (tags-todo "READING")
           (tags-todo "ELEARNING")))
-        
+
         ("r" "Tasks to Refile" tags "REFILE"
          ((org-agenda-overriding-header "Tasks to Refile")
           (org-tags-match-list-sublevels nil)))
-        
+
         ; ("H" "Habits" tags-todo "STYLE=\"habit\""
         ;  ((org-agenda-overriding-header "Habits")
         ;   (org-agenda-sorting-strategy
@@ -149,18 +150,6 @@
                       (org-agenda-sorting-strategy
                        '(category-keep))))
 
-          (tags-todo "-REFILE-CANCELLED-WAITING-HOLD/!"
-                     ((org-agenda-overriding-header (concat "Standalone Tasks"
-                                                            (if bh/hide-scheduled-and-waiting-next-tasks
-                                                                ""
-                                                              " (including WAITING and SCHEDULED tasks)")))
-                      (org-agenda-skip-function 'bh/skip-project-tasks)
-                      (org-agenda-todo-ignore-scheduled bh/hide-scheduled-and-waiting-next-tasks)
-                      (org-agenda-todo-ignore-deadlines bh/hide-scheduled-and-waiting-next-tasks)
-                      (org-agenda-todo-ignore-with-date bh/hide-scheduled-and-waiting-next-tasks)
-                      (org-agenda-sorting-strategy
-                       '(category-keep))))
-
           (tags-todo "-CANCELLED+WAITING|HOLD/!"
                      ((org-agenda-overriding-header "Waiting and Postponed Tasks")
                       (org-agenda-skip-function 'bh/skip-stuck-projects)
@@ -174,31 +163,43 @@
                  (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
                  (org-tags-match-list-sublevels nil)))
 
-          (tags "-REFILE-RKS/!NEXT"
-                ((org-agenda-overriding-header "Home Next Tasks")
-                 (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
-                 (org-tags-match-list-sublevels nil)))
+          ; (tags "-REFILE-RKS/!NEXT"
+                ; ((org-agenda-overriding-header "Home Next Tasks")
+                 ; (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
+                 ; (org-tags-match-list-sublevels nil)))
 
-          (tags "-REFILE-HOME/!WAITING"
-                ((org-agenda-overriding-header "Office Waiting Tasks")
-                 (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
-                 (org-tags-match-list-sublevels nil)))
+          ; (tags "-REFILE-HOME/!WAITING"
+                ; ((org-agenda-overriding-header "Office Waiting Tasks")
+                 ; (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
+                 ; (org-tags-match-list-sublevels nil)))
 
-          (tags "-REFILE-RKS/!WAITING"
-                ((org-agenda-overriding-header "Home Waiting Tasks")
-                 (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
-                 (org-tags-match-list-sublevels nil)))
+          ; (tags "-REFILE-RKS/!WAITING"
+                ; ((org-agenda-overriding-header "Home Waiting Tasks")
+                 ; (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
+                 ; (org-tags-match-list-sublevels nil)))
 
           (tags-todo "-REFILE-HOME/-NEXT"
                 ((org-agenda-overriding-header "Office Tasks")
                  (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
                  (org-tags-match-list-sublevels nil)))
 
-          (tags-todo "-REFILE-RKS/-NEXT"
-                ((org-agenda-overriding-header "HOME Tasks")
-                 (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
-                 (org-tags-match-list-sublevels nil)))
-                    
+          (tags-todo "-REFILE-CANCELLED-WAITING-HOLD-RUKS-UBNT/!"
+                     ((org-agenda-overriding-header (concat "Standalone Tasks"
+                                                            (if bh/hide-scheduled-and-waiting-next-tasks
+                                                                ""
+                                                              " (including WAITING and SCHEDULED tasks)")))
+                      (org-agenda-skip-function 'bh/skip-project-tasks)
+                      (org-agenda-todo-ignore-scheduled bh/hide-scheduled-and-waiting-next-tasks)
+                      (org-agenda-todo-ignore-deadlines bh/hide-scheduled-and-waiting-next-tasks)
+                      (org-agenda-todo-ignore-with-date bh/hide-scheduled-and-waiting-next-tasks)
+                      (org-agenda-sorting-strategy
+                       '(category-keep))))
+
+          ; (tags-todo "-REFILE-RKS/-NEXT"
+                ; ((org-agenda-overriding-header "HOME Tasks")
+                 ; (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
+                 ; (org-tags-match-list-sublevels nil)))
+
           ; (tags "/!NEXT"
           ;            ((org-agenda-overriding-header (concat "Project Next Tasks"
           ;                                                   (if bh/hide-scheduled-and-waiting-next-tasks
@@ -211,7 +212,7 @@
           ;             (org-agenda-todo-ignore-with-date bh/hide-scheduled-and-waiting-next-tasks)
           ;             (org-agenda-sorting-strategy
           ;              '(todo-state-down effort-up category-keep))))
-          ; 
+          ;
           ;(tags "-REFILE/"
           ;       ((org-agenda-overriding-header "Tasks to Archive")
           ;        (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
@@ -232,7 +233,7 @@
                                ("CANCELLED" :foreground "forest green" :weight bold)
                                ("MEETING" :foreground "forest green" :weight bold)
                                ("PHONE" :foreground "forest green" :weight bold))
-      
+
       ;; Moving a task to CANCELLED adds a CANCELLED tag
       ;; Moving a task to WAITING adds a WAITING tag
       ;; Moving a task to HOLD adds WAITING and HOLD tags
@@ -249,7 +250,7 @@
                                      ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))
  )
 
-; TODO entry to automatically change to DONE when all children are done, you can use the following setup: 
+; TODO entry to automatically change to DONE when all children are done, you can use the following setup:
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
   (let (org-log-done org-log-states)   ; turn off logging
@@ -262,7 +263,7 @@
       ;; Ch 6 Adding New Tasks Quickly with Org Capture from norang
       ;;
       ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, and org-protocol
-(setq org-capture-templates 
+(setq org-capture-templates
       '(
         ;("t" "New task" entry (file "refile.org")
         ;  "* TODO %^{Brief Description} %^g\n%?\n%U\n")
@@ -277,14 +278,14 @@
 
         ; ("r" "respond" entry (file "~/Dropbox/org/refile.org")l
         ;  "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
-        
+
         ; ("n" "note" entry (file "~/Dropbox/org/refile.org")
         ;  "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-        
+
         ("j" "Journal" entry (file+datetree journal-file)
          "* %?\n%U\n")
-        
-        ("E" "Night Shift" entry (file "alices-three-shift.org") 
+
+        ("E" "Night Shift" entry (file "alices-three-shift.org")
          "* E Shift\n%t\n")
 
         ; ("h" "Habit" entry (file "~/Dropbox/org/refile.org")
@@ -299,7 +300,7 @@
       org-log-done 'time
       org-log-into-drawer "LOGBOOK"
       org-clock-into-drawer "CLOCK"
-      
+
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; 7 Refiling Tasks from norang
       ;;
@@ -325,7 +326,7 @@
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; 8 Custom agenda views from norang
       org-stuck-projects (quote ("" nil nil ""))
-            
+
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; 10 Time reporting and tracking from norang
       ;;
@@ -342,7 +343,7 @@
 
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; 11 Tags from norang
-      ;;      
+      ;;
       ;; filtering todo lists and agenda views
       ;; providing context for tasks
       ;; tagging notes
@@ -370,9 +371,9 @@
       org-fast-tag-selection-single-key (quote expert)
       ; For tag searches ignore tasks with scheduled and deadline dates
       org-agenda-tags-todo-honor-ignore-options t
-      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; org-stuck-projects '(
-      ;;                      "+PROJECT/-MAYBE-DONE" ("NEXT" "TODO") 
+      ;;                      "+PROJECT/-MAYBE-DONE" ("NEXT" "TODO")
       ;;                      ("@SHOP") "\\<IGNORE\\>")
 )
 
@@ -406,7 +407,7 @@
 ;; Include current clocking task in clock reports
 (setq org-clock-report-include-clocking-task t)
 
-(setq bh/keep-clock-running nil)      
+(setq bh/keep-clock-running nil)
 
 (defun bh/clock-in-to-next (kw)
   "Switch a task from TODO to NEXT when clocking in.
@@ -573,7 +574,7 @@ A prefix arg forces clock in of the default task."
 (global-set-key (kbd "C-s-<f12>") 'bh/save-then-publish)
 (global-set-key (kbd "C-c c") 'org-capture)
 
-; allow / RET to filter tasks 
+; allow / RET to filter tasks
 (defun bh/org-auto-exclude-function (tag)
   "Automatic task exclusion in the agenda with / RET"
   (and (cond
