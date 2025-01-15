@@ -1,0 +1,57 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/blue119/Dropbox/" . "org/")
+ ("/home/blue119/.emacs.d/" . "rc/")
+ ("/home/blue119/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/blue119/Dropbox/org/"
+ "/home/blue119/.emacs.d/rc/"
+ "/tmp/"
+ "/home/blue119/.emacs.d/"
+ "/home/blue119/iConfig/_emacs.d/.emacs.d/rc/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "ubnt.org"
+ "rc-org.el"
+ "refile.org"
+ "#a.org#"
+ "a.org"
+ "newgtd.org"
+ "ac-comphist.dat"
+ "rc-auto-complete.el"
+ "ruks-scge30.org"
+ "ruks-coverity.org"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/media/blue119/408b3f42-229a-4b97-b563-6480af7604a9/blue119/Backup/iLab/jobs/ubnt/DRA/" (23189 31218 365524 759000) "AUTHORS" "config.h.in" "README" ".git/" "toolchains/" "configure.ac" "src/" "test-setup.mk" "signing_workstation/" "Makefile.am" ".gitignore" "COPYING" "010-templates/" "keys/" "scripts/" "../" "./" "go.sh" "scripts-dra/" "ChangeLog" "autoscan.log" "configure" "NEWS" "INSTALL" "extra_defs.mk" "samples/")
+
+ ("/home/blue119/Dropbox/org/" (21963 3523 600395 549000) "refile.org" ".git/" "ruks-scg2.org" "ruks-scg3.org_archive" ".#work.org" "diary.org" "journal.org" "./" "alices-three-shift.org" "ruks-scg3.org" "gCalendar.org" "Diary.org" "newgtd.org" "../" "ubnt.org" "ruks.org")
+
+ ("/home/blue119/.emacs.d/" (21394 37935 654824 259000) "backups/" "./" "auto-save-list/" "custom.el" "init.el" "org-clock-save.el" "../" "el-get/" "lisp/" "ac-comphist.dat" "bookmarks" "recentf" "rc/" "ido.last")
+
+ ("/home/blue119/.dropbox/" (21394 41457 782949 191000) "dropbox.pid" "unlink.db" "iface_socket" "info.json" "TO_HASH_U4BF0P" "./" "sigstore.dbx" "photo.dbx" "config.dbx" "deleted.dbx" "../" "command_socket" "notifications.dbx" "logs/" "host.dbx" "l/" "aggregation.dbx" "hostkeys" "config.db" "filecache.dbx" "host.db" "UPDATED_NpH_a1" "PENDING_tTLHU2")
+
+ ("/tmp/" (21394 41217 806362 491000) "a.txt" "emacs1000/" "a.html" ".X0-lock" "gnucash.trace" "systemd-private-d4lv11/" ".font-unix/" ".vbox-blue119-ipc/" "ssh-TT0rVArwvbM7/" "#a.org#" "ssh-GGCUXZ1pBAja/" "_awesome.run" ".ICE-unix/" "wpa_ctrl_989-1" ".#a.org" "zim-deamon.log" "systemd-private-ZlLJpa/" "a.pdf" ".X11-unix/" "hsperfdata_blue119/" "gpg-rHS86k/" "plugtmp/" ".Test-unix/" "zim-blue119/" "orbit-blue119/" "babel-19543KXp/" ".XIM-unix/" "../" "./")
+
+ ("/home/blue119/Dropbox/" (21394 37860 6651 198000) "kindle_azw/" "median.pdf" "./" "merge.txt" "M1-all.pdf" "M2-all.pdf" "QuarantineDog/" "sandbox3/" "../" "iConfig.git/" "org-bak.git/" "sandbox1/" "aaa.pdf" "credit_card.pdf" "data_plane_l2_frag.tar.xz" "jobs/" "sandbox4/" "bbb.pdf" "org_/" "sandbox2/" "algo-prob_review2_typed_.pdf" "all.pdf" "org/")
+
+ ("/home/blue119/" (21394 38341 343752 363000) ".chewing/" ".subversion/" ".node-gyp/" ".emacs.d/" ".scapy_history" ".vimperator/" "VirtualBox VMs/" ".bazaar/" ".qt/" ".ccache/" ".gstreamer-0.10/" ".config/" ".bashrc" ".pki/" ".distlib/" ".travis/" ".bash_aliases" ".cache/" "pbuilder/" ".psql_history" ".dbus/" ".mozilla/" "tmp/" ".xmonad/" "Documents/" ".aptitude/" "./" ".gem/" "Notebooks/" ".gnome2/" ".gosmore.opt" ".mplayer2/" ".repopickle_.gitconfig" ".mailcap" ".stardict/" ".icedtea/" ".minirc.dfl" ".zshrc" ".gnome2_private/" ".wpa_supplicant.conf" ".tmux-powerlinerc" ".gnash/" ".dput.cf" "launchy.ini" ".pgadmin_histoqueries" ".purple/" ".irssi/" ".xchm" ".0.swp" ".gnupg/" ".vimfiler/" ".tmux_plugin/" ".emacs.d_1379753255_bak/" ".mozbuild/" ".VirtualBox/" "dead.letter" ".vimperatorrc" ".virt-manager/" "../" ".launchy/" ".thumbnails/" ".wpa_supplicant.conf.bak" ".xsession-errors" ".viking-maps/" ".zsh_history" ".kde/" "dic.txt" ".gitconfig" ".yp-sh.conf" "iOpt/" ".virtinst/" ".bash_history" ".bcast/" ".macromedia/" "snc.pdf" ".josm/" ".dropbox-dist/" ".gksu.lock" ".repoconfig/" ".qgis/" ".uml/" ".gimp-2.8/" "a.py" ".adobe/" ".systemtap/" "Videos/" "minicom.log" ".unite/" "Public/" "Calibre Library/" ".ipynb_checkpoints/" ".Skype/" ".gnome-rdp.db" "ypwang.gpg" ".android/" "My Kindle Content/" ".local/" ".muttrc" ".agent" ".gdbinit" ".ssh/" ".fehbg" "Mail/" ".quiltrc" ".vagrant.d/" "Downloads/" "iConfig/" "Pictures/" ".caffrc" ".gconf/" ".navit/" ".fonts/" "iLab/" ".xsession-errors.old" ".weechat/" ".ibus/" ".mplayer/" ".layoutrc" ".cs-mgmt/" ".Xauthority" ".caff/" ".virsh/" "texmf/" ".compiling/" ".dropbox_encrypted/" ".vim/" ".lesshst" ".viminfo" ".pbuilderrc" ".weechat-debian/" ".antigen/" ".dropbox-master/" ".gdbrc" "Desktop/" ".robotframework/" ".gnucash/" ".w3m/" ".dropbox/" ".vimshell/" ".wireshark/" ".ICEauthority" ".viking/" "Dropbox/" ".selected_editor" ".xmodmaprc" ".xsession" "Music/" ".qgis2/" ".smex-items" ".mutt/" ".pgpass" ".speech-dispatcher/" ".travis.conf" ".gvfs/" ".npm/" ".offlineimaprc" ".wine/" ".synaptic/" ".offlineimap/" ".reportbugrc" ".zcompdump" ".vimrc" ".pgadmin3" ".odbc.ini" ".bzr.log" "iTools/" "iBooks/" ".tmux.conf" ".FontForge/" ".pip/" ".umlet/" ".nx/" ".java/" ".wpa_cli_history" "Templates/")
+
+ ("/home/blue119/.emacs.d/rc/" (21377 17775 593804 710000) "rc-time.el" "rc-ibus.el" "rc-decor.el" "rc-helm.el" "rc-misc.el" "rc-python.el" "./" "../" "rc-tramp.el" "rc-cua.el" "rc-wind-mgmt.el" "rc-slime.el" "rc-ibuffer.el" "rc-yasnippet.el" "rc-startup.el" "rc-fci.el" "rc-theme.el" "rc-org.el" "rc-gtags.el" "rc-p4.el" "rc-auto-complete.el" "rc-kbd.el")
+
+ ("/home/blue119/iConfig/_emacs.d/.emacs.d/rc/" (21377 17775 593804 710000) "rc-time.el" "rc-ibus.el" "rc-decor.el" "rc-helm.el" "rc-misc.el" "rc-python.el" "./" "../" "rc-tramp.el" "rc-cua.el" "rc-wind-mgmt.el" "rc-slime.el" "rc-ibuffer.el" "rc-yasnippet.el" "rc-startup.el" "rc-fci.el" "rc-theme.el" "rc-org.el" "rc-gtags.el" "rc-p4.el" "rc-auto-complete.el" "rc-kbd.el")
+
+ ("/usr/share/info/emacs-snapshot/" (21211 38681 88638 373000) "efaq.info.gz" "widget.info.gz" "htmlfontify.info.gz" "emacs.info.gz" "message.info.gz" "elisp.info.gz" "pgg.info.gz" "semantic.info.gz" "emacs-mime.info.gz" "reftex.info.gz" "dbus.info.gz" "smtpmail.info.gz" "todo-mode.info.gz" "calc.info.gz" "eshell.info.gz" "info.info.gz" "edt.info.gz" "dired-x.info.gz" "mairix-el.info.gz" "sieve.info.gz" "ses.info.gz" "auth.info.gz" "ada-mode.info.gz" "viper.info.gz" "sasl.info.gz" "ebrowse.info.gz" "eintr.info.gz" "nxml-mode.info.gz" "ede.info.gz" "eudc.info.gz" "eieio.info.gz" "remember.info.gz" "ccmode.info.gz" "autotype.info.gz" "cl.info.gz" "bovine.info.gz" "wisent.info.gz" "rcirc.info.gz" "url.info.gz" "idlwave.info.gz" "forms.info.gz" "sc.info.gz" "speedbar.info.gz" "tramp.info.gz" "pcl-cvs.info.gz" "epa.info.gz" "mh-e.info.gz" "vip.info.gz" "erc.info.gz" "flymake.info.gz" "emacs-gnutls.info.gz" "ediff.info.gz" "octave-mode.info.gz" "woman.info.gz" "ido.info.gz" "srecode.info.gz" "gnus.info.gz" "org.info.gz" "newsticker.info.gz" "ert.info.gz" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
